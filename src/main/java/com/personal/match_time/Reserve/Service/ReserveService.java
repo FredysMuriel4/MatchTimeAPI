@@ -44,7 +44,8 @@ public class ReserveService {
                 reserveRequest.getFieldId(),
                 reserveRequest.getDate(),
                 reserveRequest.getStartTime(),
-                reserveRequest.getEndTime()
+                reserveRequest.getEndTime(),
+                null
         );
 
         this.validateUserDisponibility(
@@ -83,9 +84,7 @@ public class ReserveService {
 
     public Reserve cancelReserve(Long id) {
 
-        Reserve reserve = reserveRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Reserve Not found"));
-
+        Reserve reserve = this.getReserveById(id);
 
         reserve.setStatus("CANCELLED");
 
@@ -94,8 +93,7 @@ public class ReserveService {
 
     public Reserve confirmReserve(Long id) {
 
-        Reserve reserve = reserveRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Reserve Not found"));
+        Reserve reserve = this.getReserveById(id);
 
         if(reserve.getStatus().equals("CANCELLED")) {
 
@@ -109,8 +107,7 @@ public class ReserveService {
 
     public Reserve completeReserve(Long id) {
 
-        Reserve reserve = reserveRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Reserve Not found"));
+        Reserve reserve = this.getReserveById(id);
 
         if(!reserve.getStatus().equals("CONFIRMED")) {
 
@@ -122,15 +119,44 @@ public class ReserveService {
         return reserveRepository.save(reserve);
     }
 
+    public Reserve updateReserve(Long id, ReserveRequest reserveRequest) {
+
+        this.validateFieldDisponibility(
+                reserveRequest.getFieldId(),
+                reserveRequest.getDate(),
+                reserveRequest.getStartTime(),
+                reserveRequest.getEndTime(),
+                id
+        );
+
+        Reserve reserve = this.getReserveById(id);
+
+        if(!reserve.getStatus().equals("PENDING")) {
+
+            throw new IllegalArgumentException("Invalid reserve!");
+        }
+
+        User user = userService.getUserById(reserveRequest.getUserId());
+        Field field = fieldService.getFieldById(reserveRequest.getFieldId());
+
+        reserve.setUser(user);
+        reserve.setField(field);
+        reserve.setStatus("PENDING");
+
+        return reserveRepository.save(reserve);
+    }
+
     public void validateFieldDisponibility(
-            Long fieldId, LocalDate date, LocalTime startTime, LocalTime endTime
+            Long fieldId, LocalDate date, LocalTime startTime, LocalTime endTime, Long reserveId
     ) {
 
         List<Reserve> fieldReserves = this.getReservesByField(fieldId);
 
         for (Reserve reserve: fieldReserves) {
-
-            if(reserve.getDate().equals(date)) {
+            if(
+                (reserve.getDate().equals(date)) &&
+                (!reserveId.equals(reserve.getId()))
+            ) {
 
                 if(
                     (
@@ -182,5 +208,11 @@ public class ReserveService {
                 }
             }
         }
+    }
+
+    public Reserve getReserveById(Long id) {
+
+        return reserveRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Reserve Not found"));
     }
 }

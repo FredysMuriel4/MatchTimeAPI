@@ -8,7 +8,6 @@ import java.time.LocalTime;
 
 public class ReserveRequest {
 
-    @NotNull
     private Long userId;
 
     @NotNull

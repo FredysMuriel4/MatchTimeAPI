@@ -75,4 +75,13 @@ public class ReserveController {
 
         return reserveService.completeReserve(id);
     }
+
+    @PutMapping("/update/{id}")
+    public Reserve updateReserve(
+            @PathVariable Long id,
+            @Validated @RequestBody ReserveRequest reserveRequest
+    ) {
+
+        return reserveService.updateReserve(id, reserveRequest);
+    }
 }

@@ -107,6 +107,21 @@ public class ReserveService {
         return reserveRepository.save(reserve);
     }
 
+    public Reserve completeReserve(Long id) {
+
+        Reserve reserve = reserveRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Reserve Not found"));
+
+        if(!reserve.getStatus().equals("CONFIRMED")) {
+
+            throw new IllegalArgumentException("Invalid reserve!");
+        }
+
+        reserve.setStatus("COMPLETED");
+
+        return reserveRepository.save(reserve);
+    }
+
     public void validateFieldDisponibility(
             Long fieldId, LocalDate date, LocalTime startTime, LocalTime endTime
     ) {

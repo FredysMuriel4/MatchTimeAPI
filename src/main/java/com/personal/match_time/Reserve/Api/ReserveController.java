@@ -67,4 +67,12 @@ public class ReserveController {
 
         return reserveService.confirmReserve(id);
     }
+
+    @PutMapping("/complete/{id}")
+    public Reserve completeReservation(
+            @PathVariable Long id
+    ) {
+
+        return reserveService.completeReserve(id);
+    }
 }

@@ -49,7 +49,7 @@ public class ReserveService {
         );
 
         this.validateUserDisponibility(
-                reserveRequest.getFieldId(),
+                reserveRequest.getUserId(),
                 reserveRequest.getDate(),
                 reserveRequest.getStartTime(),
                 reserveRequest.getEndTime()
@@ -207,23 +207,6 @@ public class ReserveService {
             ) {
 
                 throw new IllegalArgumentException("The user have active reservations!");
-            }
-
-            if(reserve.getDate().equals(date)) {
-
-                if(
-                    (
-                        startTime.isAfter(reserve.getStartTime()) &&
-                        startTime.isBefore(reserve.getEndTime())
-                    ) ||
-                    (
-                        startTime.equals(reserve.getStartTime()) &&
-                        endTime.equals(reserve.getEndTime())
-                    )
-                ) {
-
-                    throw new IllegalArgumentException("A reservation exist at this range of hours!");
-                }
             }
         }
     }

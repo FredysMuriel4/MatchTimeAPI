@@ -155,23 +155,41 @@ public class ReserveService {
         for (Reserve reserve: fieldReserves) {
             if(
                 (reserve.getDate().equals(date)) &&
+                (reserveId == null)
+            ) {
+
+                this.validateReserveByHours(startTime, endTime, reserve);
+            }
+
+            if(
+                (reserve.getDate().equals(date)) &&
+                (reserveId != null) &&
                 (!reserveId.equals(reserve.getId()))
             ) {
 
-                if(
-                    (
-                        startTime.isAfter(reserve.getStartTime()) &&
-                        startTime.isBefore(reserve.getEndTime())
-                    ) ||
-                    (
-                        startTime.equals(reserve.getStartTime()) &&
-                        endTime.equals(reserve.getEndTime())
-                    )
-                ) {
-
-                    throw new IllegalArgumentException("A reservation exist for this range of hours!");
-                }
+                this.validateReserveByHours(startTime, endTime, reserve);
             }
+        }
+    }
+
+    public void validateReserveByHours(LocalTime startTime, LocalTime endTime, Reserve reserve) {
+
+        if(
+            (
+                startTime.isAfter(reserve.getStartTime()) &&
+                startTime.isBefore(reserve.getEndTime())
+            ) ||
+            (
+                endTime.isAfter(reserve.getStartTime()) &&
+                endTime.isBefore(reserve.getEndTime())
+            ) ||
+            (
+                startTime.equals(reserve.getStartTime()) &&
+                endTime.equals(reserve.getEndTime())
+            )
+        ) {
+
+            throw new IllegalArgumentException("A reservation exist for this range of hours!");
         }
     }
 
@@ -179,7 +197,7 @@ public class ReserveService {
             Long userId, LocalDate date, LocalTime startTime, LocalTime endTime
     ) {
 
-        List<Reserve> userReserves = this.getReservesByField(userId);
+        List<Reserve> userReserves = this.getReservesByUser(userId);
 
         for (Reserve reserve: userReserves) {
 

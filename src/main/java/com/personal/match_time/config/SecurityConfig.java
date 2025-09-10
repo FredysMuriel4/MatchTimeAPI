@@ -1,4 +1,4 @@
-package com.personal.match_time.Config;
+package com.personal.match_time.config;
 
 
 import org.springframework.context.annotation.Bean;

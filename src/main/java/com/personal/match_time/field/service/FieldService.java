@@ -1,8 +1,8 @@
-package com.personal.match_time.Field.Service;
+package com.personal.match_time.field.service;
 
-import com.personal.match_time.Field.Model.Field;
-import com.personal.match_time.Field.Repository.FieldRepository;
-import com.personal.match_time.Field.Request.FieldRequest;
+import com.personal.match_time.field.model.Field;
+import com.personal.match_time.field.repository.FieldRepository;
+import com.personal.match_time.field.request.FieldRequest;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

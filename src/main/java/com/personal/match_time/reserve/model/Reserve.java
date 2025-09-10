@@ -1,9 +1,9 @@
-package com.personal.match_time.Reserve.Model;
+package com.personal.match_time.reserve.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.personal.match_time.Field.Model.Field;
-import com.personal.match_time.Reserve.Request.ReserveRequest;
-import com.personal.match_time.User.Model.User;
+import com.personal.match_time.field.model.Field;
+import com.personal.match_time.reserve.request.ReserveRequest;
+import com.personal.match_time.user.model.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

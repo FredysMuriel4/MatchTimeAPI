@@ -1,6 +1,6 @@
-package com.personal.match_time.User.Model;
+package com.personal.match_time.user.model;
 
-import com.personal.match_time.User.Request.UserRequest;
+import com.personal.match_time.user.request.UserRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

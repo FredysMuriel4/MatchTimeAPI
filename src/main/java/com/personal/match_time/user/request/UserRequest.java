@@ -1,4 +1,4 @@
-package com.personal.match_time.User.Request;
+package com.personal.match_time.user.request;
 
 import jakarta.validation.constraints.NotBlank;
 

@@ -1,6 +1,6 @@
-package com.personal.match_time.Field.Model;
+package com.personal.match_time.field.model;
 
-import com.personal.match_time.Field.Request.FieldRequest;
+import com.personal.match_time.field.request.FieldRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

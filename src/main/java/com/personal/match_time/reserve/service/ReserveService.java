@@ -1,12 +1,12 @@
-package com.personal.match_time.Reserve.Service;
+package com.personal.match_time.reserve.service;
 
-import com.personal.match_time.Field.Model.Field;
-import com.personal.match_time.Field.Service.FieldService;
-import com.personal.match_time.Reserve.Model.Reserve;
-import com.personal.match_time.Reserve.Repository.ReserveRepository;
-import com.personal.match_time.Reserve.Request.ReserveRequest;
-import com.personal.match_time.User.Model.User;
-import com.personal.match_time.User.Service.UserService;
+import com.personal.match_time.field.model.Field;
+import com.personal.match_time.field.service.FieldService;
+import com.personal.match_time.reserve.model.Reserve;
+import com.personal.match_time.reserve.repository.ReserveRepository;
+import com.personal.match_time.reserve.request.ReserveRequest;
+import com.personal.match_time.user.model.User;
+import com.personal.match_time.user.service.UserService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

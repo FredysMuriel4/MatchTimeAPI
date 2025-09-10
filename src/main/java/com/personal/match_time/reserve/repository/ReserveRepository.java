@@ -1,8 +1,8 @@
-package com.personal.match_time.Reserve.Repository;
+package com.personal.match_time.reserve.repository;
 
-import com.personal.match_time.Field.Model.Field;
-import com.personal.match_time.Reserve.Model.Reserve;
-import com.personal.match_time.User.Model.User;
+import com.personal.match_time.field.model.Field;
+import com.personal.match_time.reserve.model.Reserve;
+import com.personal.match_time.user.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

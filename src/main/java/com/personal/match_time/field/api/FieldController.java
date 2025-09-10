@@ -1,8 +1,8 @@
-package com.personal.match_time.Field.Api;
+package com.personal.match_time.field.api;
 
-import com.personal.match_time.Field.Model.Field;
-import com.personal.match_time.Field.Request.FieldRequest;
-import com.personal.match_time.Field.Service.FieldService;
+import com.personal.match_time.field.model.Field;
+import com.personal.match_time.field.request.FieldRequest;
+import com.personal.match_time.field.service.FieldService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

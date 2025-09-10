@@ -1,8 +1,8 @@
-package com.personal.match_time.User.Service;
+package com.personal.match_time.user.service;
 
-import com.personal.match_time.User.Model.User;
-import com.personal.match_time.User.Repository.UserRepository;
-import com.personal.match_time.User.Request.UserRequest;
+import com.personal.match_time.user.model.User;
+import com.personal.match_time.user.repository.UserRepository;
+import com.personal.match_time.user.request.UserRequest;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;

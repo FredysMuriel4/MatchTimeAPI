@@ -1,4 +1,4 @@
-package com.personal.match_time.Reserve.Request;
+package com.personal.match_time.reserve.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotNull;

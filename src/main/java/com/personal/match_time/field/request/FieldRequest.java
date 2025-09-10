@@ -1,4 +1,4 @@
-package com.personal.match_time.Field.Request;
+package com.personal.match_time.field.request;
 
 
 import jakarta.validation.constraints.NotBlank;

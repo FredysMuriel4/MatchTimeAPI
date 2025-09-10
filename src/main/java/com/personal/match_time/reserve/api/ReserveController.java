@@ -1,10 +1,9 @@
-package com.personal.match_time.Reserve.Api;
+package com.personal.match_time.reserve.api;
 
-import com.personal.match_time.Reserve.Model.Reserve;
-import com.personal.match_time.Reserve.Request.ReserveRequest;
-import com.personal.match_time.Reserve.Service.ReserveService;
+import com.personal.match_time.reserve.model.Reserve;
+import com.personal.match_time.reserve.request.ReserveRequest;
+import com.personal.match_time.reserve.service.ReserveService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.repository.query.Param;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 

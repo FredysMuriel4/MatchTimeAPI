@@ -1,8 +1,8 @@
-package com.personal.match_time.User.Api;
+package com.personal.match_time.user.api;
 
-import com.personal.match_time.User.Model.User;
-import com.personal.match_time.User.Request.UserRequest;
-import com.personal.match_time.User.Service.UserService;
+import com.personal.match_time.user.model.User;
+import com.personal.match_time.user.request.UserRequest;
+import com.personal.match_time.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
